@@ -1,0 +1,244 @@
+/* StreetPeek floating button */
+#streetpeek-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s, transform 0.15s;
+}
+
+#streetpeek-btn:hover {
+  background: #1d4ed8;
+  transform: scale(1.05);
+}
+
+#streetpeek-btn:active {
+  transform: scale(0.97);
+}
+
+#streetpeek-btn svg {
+  flex-shrink: 0;
+}
+
+/* StreetPeek panel */
+#streetpeek-panel {
+  position: fixed;
+  bottom: 80px;
+  right: 24px;
+  z-index: 100000;
+  width: 480px;
+  max-width: calc(100vw - 48px);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Panel header */
+.sneak-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8, #1e40af, #2563eb, #60a5fa);
+  background-size: 300% 300%;
+  animation: sneak-gradient 6s ease infinite;
+  color: #fff;
+  user-select: none;
+}
+
+@keyframes sneak-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.sneak-header h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.sneak-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Links in header */
+.sneak-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.sneak-link:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Close button */
+.sneak-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.sneak-close:hover {
+  opacity: 1;
+}
+
+/* Panel body */
+.sneak-body {
+  padding: 0;
+}
+
+.sneak-body.sneak-error {
+  padding: 24px;
+  text-align: center;
+  color: #484848;
+}
+
+.sneak-body.sneak-error p {
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Info card */
+.sneak-info-card {
+  padding: 12px 16px;
+  background: #f9f9f9;
+}
+
+.sneak-info-section {
+  margin-bottom: 10px;
+}
+
+.sneak-info-section:last-child {
+  margin-bottom: 0;
+}
+
+.sneak-info-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #717171;
+  margin-bottom: 3px;
+}
+
+.sneak-info-items {
+  font-size: 13px;
+  color: #484848;
+  line-height: 1.5;
+}
+
+.sneak-source-link {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.sneak-source-link:hover {
+  color: #1d4ed8;
+}
+
+/* Attribution */
+.sneak-attribution {
+  font-size: 10px;
+  color: #b0b0b0;
+  margin-top: 8px;
+}
+
+.sneak-attribution a {
+  color: #b0b0b0;
+  text-decoration: underline;
+}
+
+/* Neighborhood label */
+.sneak-neighborhood {
+  font-size: 13px;
+  font-weight: 600;
+  color: #484848;
+  margin-bottom: 8px;
+}
+
+/* Loading state */
+.sneak-loading-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 16px;
+  font-size: 13px;
+  color: #717171;
+}
+
+.sneak-spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: sneak-spin 0.7s linear infinite;
+}
+
+@keyframes sneak-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Street View iframe */
+.sneak-iframe {
+  width: 100%;
+  height: 320px;
+  border: none;
+  display: block;
+}
+
+/* Hint text */
+.sneak-hint {
+  margin: 0;
+  padding: 10px 16px;
+  font-size: 12px;
+  color: #717171;
+  background: #f7f7f7;
+  border-top: 1px solid #ebebeb;
+  line-height: 1.4;
+}
+
+/* Disclaimer */
+.sneak-disclaimer {
+  margin: 0;
+  padding: 8px 16px;
+  font-size: 10px;
+  color: #b0b0b0;
+  background: #f7f7f7;
+  line-height: 1.4;
+}
